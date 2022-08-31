@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin : 0; padding: 0; box-sizing: border-box;
+            font-family: 'Noto Sans', sans-serif;
+            font-weight: bold;
+        }
+        main{
+            height: 100vh;
+            background-image: linear-gradient(to right top, #bf9b20, #b7a965, #fcb42f, #c1611a, #d62e2e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        div{
+            max-width: 500px;
+            height: auto;
+            background-color: #ebb38b00;
+            padding: 50px;
+            border-radius: 25px;
+        }
+        h1{
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 1px white;    
+        }
+        label{
+            display: block;
+            margin-top: 30px;
+
+        }
+        input{
+            width: 400px;
+            padding: 10px 0;
+        }
+        button{
+            border-radius: 10px;
+            padding: 15px 30px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            background-color: #40222273;
+            border: none;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <h1>Tip Calculator</h1>
+    <div>
+        <label>Bill Amount</label>
+        <input type="text" name="" id="bill_amount">
+        <br>
+        <label>Tip Percentage</label>
+        <input type="text" name="" id="tip_perc">
+        <br>
+        <label>Tip Amount</label>
+        <input type="text" name="" id="tip_amount" disabled>
+        <br>
+        <label>Total Amount</label>
+        <input type="text" name="" id="final_bill" disabled>
+        <br>
+        <button onclick="calculate_tip()">calculate</button>
+    </div>
+</main>
+<script>
+    const calculate_tip = () => {
+        let amount = document.getElementById('bill_amount').value;
+        let perc = document.getElementById('tip_perc').value;
+
+        let tip = amount * (perc/100);
+
+        let total = tip + Number(amount);
+
+        document.getElementById('tip_amount').value = tip;
+
+        document.getElementById('final_bill').value = total;
+
+    }
+</script>
+
+</html>
